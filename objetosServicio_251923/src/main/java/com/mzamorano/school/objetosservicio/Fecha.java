@@ -51,6 +51,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Construye una nueva instancia de {@code Fecha} copiando el día, mes, y año de una instancia existente.
+     *
      * @param fecha la {@code Fecha} a copiar.
      */
     public Fecha(Fecha fecha) {
@@ -62,6 +63,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Construye una nueva instancia de {@code Fecha} copiando el día, mes, y año de una instancia existente.
+     *
      * @param fecha el objeto {@code Date} que se utiliza para establecer el tiempo de esta instancia.
      */
     public Fecha(Date fecha) {
@@ -99,6 +101,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Obtiene el día del mes de esta instancia de {@code Fecha}.
+     *
      * @return el día del mes representado por esta instancia.
      */
     public int getDia() {
@@ -107,6 +110,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Establece el día del mes para esta instancia de {@code Fecha}.
+     *
      * @param dia el nuevo día del mes a establecer (1-31, dependiendo del mes y año).
      */
     public void setDia(int dia) {
@@ -115,6 +119,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Obtiene el mes de esta instancia de {@code Fecha}, ajustado a un índice basado en 1.
+     *
      * @return el mes del año representado por esta instancia, donde 1 es enero y 12 es diciembre.
      */
     public int getMes() {
@@ -123,6 +128,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Establece el mes para esta instancia de {@code Fecha}, esperando un índice basado en 1.
+     *
      * @param mes el nuevo mes a establecer (1-12, donde 1 es enero y 12 es diciembre).
      */
     public void setMes(int mes) {
@@ -132,6 +138,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Obtiene el año de esta instancia de {@code Fecha}.
+     *
      * @return el año representado por esta instancia.
      */
     public int getAnho() {
@@ -140,6 +147,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Establece el año de esta instancia de {@code Fecha}.
+     *
      * @param anho el nuevo año a establecer, representando el año completo (por ejemplo, 2024 y no 24).
      */
     public void setAnho(int anho) {
@@ -149,6 +157,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Establece la fecha de esta instancia de {@code Fecha} usando los valores especificados para el día, mes y año.
      * Antes de establecer la nueva fecha, limpia la configuración actual de tiempo de esta instancia.
+     *
      * @param dia el día del mes (1-31) dependiendo del mes y el año.
      * @param mes el mes del año (1-12), donde 1 es enero y 12 es diciembre.
      * @param anho el año, representando el año completo (por ejemplo, 2024 y no 24).
@@ -160,6 +169,7 @@ public class Fecha extends GregorianCalendar {
 
     /**
      * Establece la fecha de esta instancia de {@code Fecha} al valor especificado.
+     *
      * @param fecha el objeto {@code Date} que representa la nueva fecha a ser establecida para esta instancia.
      * @see #setFecha(int, int, int)
      */
@@ -170,6 +180,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Calcula una fecha en el futuro a partir de esta instancia de {@code Fecha}, agregando
      * una cantidad específica de días, meses y años.
+     *
      * @param dias la cantidad de días a agregar.
      * @param meses la cantidad de meses a agregar.
      * @param anhos la cantidad de años a agregar.
@@ -190,6 +201,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Calcula una fecha en el futuro a partir de esta instancia de {@code Fecha}, agregando
      * una cantidad específica de días y meses.
+     *
      * @param dias la cantidad de días a agregar.
      * @param meses la cantidad de meses a agregar.
      * @return una nueva instancia de {@code Fecha} que representa una fecha en el futuro.
@@ -208,6 +220,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Calcula una fecha en el futuro a partir de esta instancia de {@code Fecha}, agregando
      * una cantidad específica de días.
+     *
      * @param dias la cantidad de días a agregar.
      * @return una nueva instancia de {@code Fecha} que representa una fecha en el futuro.
      * @see #vencimiento(int, int)
@@ -222,6 +235,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Calcula el número de días de diferencia entre esta instancia de {@code Fecha} y otra fecha proporcionada.
      * Este método ignora el componente de tiempo de ambas fechas, enfocándose únicamente en la diferencia de días.
+     *
      * @param desde la instancia de {@code Fecha} desde la cual se calcula el lapso de días hasta esta instancia.
      *              Debe representar una fecha anterior a esta para obtener un resultado positivo.
      * @return el número de días como un entero que han pasado desde la fecha proporcionada ({@code desde})
@@ -237,6 +251,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Devuelve una representación en cadena de la fecha de esta instancia, utilizando lenguaje natural en español,
      * por ejemplo, "21 de agosto de 2023".
+     *
      * @return una cadena que representa la fecha de esta instancia con el formato "día de mes de año",
      *         utilizando nombres de meses en español.
      */
@@ -250,6 +265,7 @@ public class Fecha extends GregorianCalendar {
     /**
      * Devuelve una representación en cadena de la fecha contenida en esta instancia de {@code Fecha}.
      * El formato de la fecha devuelta es "dd/MM/aaaa".
+     *
      * @return una cadena que representa la fecha de esta instancia en el formato día/mes/año.
      */
     @Override
