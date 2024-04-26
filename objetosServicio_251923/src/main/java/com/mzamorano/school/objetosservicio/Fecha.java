@@ -25,17 +25,14 @@ import java.util.Locale;
  */
 public class Fecha extends GregorianCalendar {
     /**
-     * Construye una nueva instancia de {@code Fecha} con la configuración predeterminada.
-     * Este constructor inicializa la instancia al tiempo actual, según lo define el sistema.
+     * Construye una {@code Fecha} usando el constructor por defecto de {@link GregorianCalendar}.
      */
     public Fecha() {
         super();
     }
 
     /**
-     * Construye una nueva instancia de {@code Fecha} con el día, mes y año especificados.
-     * Este constructor establece explícitamente la fecha representada por esta instancia
-     * según los valores proporcionados.
+     * Construye una {@code Fecha} con el día, mes y año dados.
      *
      * @param dia el día del mes (1-31) dependiendo del mes y el año.
      * @param mes el mes del año (1-12), donde 1 es enero y 12 es diciembre.
@@ -50,7 +47,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Construye una nueva instancia de {@code Fecha} copiando el día, mes, y año de una instancia existente.
+     * Construye una {@code Fecha} copiando el día, mes, y año de una instancia existente.
      *
      * @param fecha la {@code Fecha} a copiar.
      */
@@ -62,7 +59,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Construye una nueva instancia de {@code Fecha} copiando el día, mes, y año de una instancia existente.
+     * Construye una {@code Fecha} copiando el día, mes, y año de una instancia existente.
      *
      * @param fecha el objeto {@code Date} que se utiliza para establecer el tiempo de esta instancia.
      */
@@ -72,7 +69,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Construye una nueva instancia de {@code Fecha} a partir de una cadena de texto que representa una fecha.
+     * Construye una {@code Fecha} a partir de una cadena de texto que representa una fecha.
      * La cadena debe estar en el formato "dd/mm/aaaa" (por ejemplo, "31/01/2024").
      *
      * @param s la cadena de texto que representa la fecha en el formato "dd/mm/aaaa".
@@ -100,7 +97,7 @@ public class Fecha extends GregorianCalendar {
 
 
     /**
-     * Obtiene el día del mes de esta instancia de {@code Fecha}.
+     * Devuelve el día del mes de esta instancia de {@code Fecha}.
      *
      * @return el día del mes representado por esta instancia.
      */
@@ -118,7 +115,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Obtiene el mes de esta instancia de {@code Fecha}, ajustado a un índice basado en 1.
+     * Devuelve el mes de esta instancia de {@code Fecha}, ajustado a un índice basado en 1.
      *
      * @return el mes del año representado por esta instancia, donde 1 es enero y 12 es diciembre.
      */
@@ -137,7 +134,7 @@ public class Fecha extends GregorianCalendar {
 
 
     /**
-     * Obtiene el año de esta instancia de {@code Fecha}.
+     * Devuelve el año de esta instancia de {@code Fecha}.
      *
      * @return el año representado por esta instancia.
      */
@@ -249,7 +246,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Devuelve una representación en cadena de la fecha de esta instancia, utilizando lenguaje natural en español,
+     * Devuelve una representación en cadena de esta fecha, utilizando lenguaje natural en español,
      * por ejemplo, "21 de agosto de 2023".
      *
      * @return una cadena que representa la fecha de esta instancia con el formato "día de mes de año",
@@ -263,7 +260,7 @@ public class Fecha extends GregorianCalendar {
     }
 
     /**
-     * Devuelve una representación en cadena de la fecha contenida en esta instancia de {@code Fecha}.
+     * Devuelve una representación en cadena de esta fecha.
      * El formato de la fecha devuelta es "dd/MM/aaaa".
      *
      * @return una cadena que representa la fecha de esta instancia en el formato día/mes/año.

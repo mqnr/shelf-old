@@ -1,14 +1,15 @@
 package com.mzamorano.school.objetosservicio;
 
 /**
- * Representa un periodo de tiempo entre dos fechas, incluyendo ambas fechas en el intervalo.
+ * Representa un periodo de tiempo entre dos instancias de {@link Fecha}, incluyendo ambas fechas en el intervalo.
  */
 public class Periodo {
     private Fecha desde;
     private Fecha hasta;
 
     /**
-     * Construye un nuevo periodo especificando sus fechas de inicio y fin.
+     * Construye un {@code Periodo} con las fechas de inicio y fin dadas.
+     *
      * @param desde la fecha de inicio del periodo.
      * @param hasta la fecha de fin del periodo.
      */
@@ -18,7 +19,8 @@ public class Periodo {
     }
 
     /**
-     * Obtiene la fecha de inicio de este periodo.
+     * Devuelve la fecha de inicio de este periodo.
+     *
      * @return la fecha de inicio del periodo.
      */
     public Fecha getDesde() {
@@ -27,6 +29,7 @@ public class Periodo {
 
     /**
      * Establece una nueva fecha de inicio para este periodo.
+     *
      * @param desde la nueva fecha de inicio del periodo.
      */
     public void setDesde(Fecha desde) {
@@ -34,7 +37,8 @@ public class Periodo {
     }
 
     /**
-     * Obtiene la fecha de fin de este periodo.
+     * Devuelve la fecha de fin de este periodo.
+     *
      * @return la fecha de fin del periodo.
      */
     public Fecha getHasta() {
@@ -43,6 +47,7 @@ public class Periodo {
 
     /**
      * Establece una nueva fecha de fin para este periodo.
+     *
      * @param hasta la nueva fecha de fin del periodo.
      */
     public void setHasta(Fecha hasta) {
@@ -51,6 +56,7 @@ public class Periodo {
 
     /**
      * Determina si una fecha específica está contenida dentro del periodo, incluyendo los límites.
+     *
      * @param fecha la fecha a verificar.
      * @return {@code true} si la fecha está dentro del periodo (incluyendo las fechas de inicio y fin),
      *         {@code false} en caso contrario.
@@ -63,7 +69,8 @@ public class Periodo {
     }
 
     /**
-     * Devuelve una representación en cadena del periodo, mostrando las fechas de inicio y fin.
+     * Devuelve una representación en cadena de este periodo, mostrando las fechas de inicio y fin.
+     *
      * @return una cadena que representa el periodo, en el formato "desde a hasta".
      */
     @Override
