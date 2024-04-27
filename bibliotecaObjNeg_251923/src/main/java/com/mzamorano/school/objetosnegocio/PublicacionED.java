@@ -3,8 +3,12 @@ package com.mzamorano.school.objetosnegocio;
 import java.util.Objects;
 
 /**
- * Gestiona la información de existencia y disponibilidad de una {@link Publicacion} en el inventario.
- * Esta clase encapsula una publicación junto con sus datos de existencia (total de copias) y disponibilidad (copias disponibles para préstamo o venta).
+ * {@code PublicacionED} (Publicación Existencia y Disponibilidad) encapsula la información de existencia y disponibilidad
+ * de una {@code Publicacion} en el inventario de la biblioteca.
+ *
+ * <p>Esta clase es esencial para el manejo de inventarios en sistemas que gestionan bibliotecas o puntos de venta
+ * de publicaciones, permitiendo el seguimiento detallado de cuántas copias de una publicación están disponibles
+ * para ser prestadas o vendidas.
  */
 public class PublicacionED {
     private Publicacion publicacion;
@@ -12,13 +16,14 @@ public class PublicacionED {
     private int disponibilidad;
 
     /**
-     * Constructor por defecto que crea una instancia sin especificar la publicación ni sus cantidades.
+     * Construye una {@code PublicacionED} sin inicializar sus atributos.
      */
     public PublicacionED() {
     }
 
     /**
-     * Constructor que inicializa una instancia con una publicación específica y sus respectivas cantidades de existencia y disponibilidad.
+     * Construye una {@code PublicacionED} con una publicación y sus respectivas cantidades de existencia y disponibilidad.
+     *
      * @param publicacion la publicación a la que se refiere esta entrada de inventario.
      * @param existencia el total de copias existentes de la publicación.
      * @param disponibilidad el número de copias disponibles.
@@ -30,7 +35,8 @@ public class PublicacionED {
     }
 
     /**
-     * Constructor que inicializa una instancia solo con la publicación.
+     * Construye una {@code PublicacionED} con una publicación dada.
+     *
      * @param publicacion la publicación de esta entrada de inventario.
      */
     public PublicacionED(Publicacion publicacion) {
@@ -38,8 +44,9 @@ public class PublicacionED {
     }
 
     /**
-     * Obtiene la publicación asociada con esta entrada de inventario.
-     * @return La publicación.
+     * Devuelve la publicación asociada con esta entrada de inventario.
+     *
+     * @return la publicación.
      */
     public Publicacion getPublicacion() {
         return publicacion;
@@ -47,6 +54,7 @@ public class PublicacionED {
 
     /**
      * Establece la publicación asociada con esta entrada de inventario.
+     *
      * @param publicacion la nueva publicación.
      */
     public void setPublicacion(Publicacion publicacion) {
@@ -54,7 +62,8 @@ public class PublicacionED {
     }
 
     /**
-     * Obtiene el total de copias existentes de la publicación.
+     * Devuelve el total de copias existentes de la publicación.
+     *
      * @return el número de existencias.
      */
     public int getExistencia() {
@@ -63,6 +72,7 @@ public class PublicacionED {
 
     /**
      * Establece el total de copias existentes de la publicación.
+     *
      * @param existencia el nuevo total de existencias.
      */
     public void setExistencia(int existencia) {
@@ -70,7 +80,8 @@ public class PublicacionED {
     }
 
     /**
-     * Obtiene el número de copias disponibles de la publicación.
+     * Devuelve el número de copias disponibles de la publicación.
+     *
      * @return el número de disponibilidades.
      */
     public int getDisponibilidad() {
@@ -79,6 +90,7 @@ public class PublicacionED {
 
     /**
      * Establece el número de copias disponibles de la publicación.
+     *
      * @param disponibilidad el nuevo número de disponibilidades.
      */
     public void setDisponibilidad(int disponibilidad) {
@@ -86,9 +98,11 @@ public class PublicacionED {
     }
 
     /**
-     * Determina si dos instancias de {@link PublicacionED} son iguales, basándose en la publicación asociada.
+     * Compara esta {@code PublicacionED} al {@code Object} especificado. El resultado es {@code true} si y
+     * solo si el argumento es un objeto {@code PrestamoED} con la misma publicación.
+     *
      * @param o el objeto con el que comparar.
-     * @return {@code true} si ambas instancias se refieren a la misma publicación, {@code false} en caso contrario.
+     * @return {@code true} si los objetos son iguales, {@code false} en caso contrario.
      */
     @Override
     public boolean equals(Object o) {
@@ -99,8 +113,9 @@ public class PublicacionED {
     }
 
     /**
-     * Calcula el código hash de esta instancia, basándose en la publicación asociada.
-     * @return el código hash de esta instancia.
+     * Devuelve el código hash para este {@code PrestamoED} basándose en su publicación.
+     *
+     * @return el código hash de esta entrada de inventario.
      */
     @Override
     public int hashCode() {
@@ -108,8 +123,9 @@ public class PublicacionED {
     }
 
     /**
-     * Devuelve una representación en cadena de esta entrada de inventario, incluyendo la publicación y sus cantidades de existencia y disponibilidad.
-     * @return una cadena que representa esta entrada de inventario.
+     * Devuelve una representación en cadena de la entrada de inventario.
+     *
+     * @return una cadena que representa esta entrada de inventario, incluyendo la publicación y sus cantidades de existencia y disponibilidad.
      */
     @Override
     public String toString() {

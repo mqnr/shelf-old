@@ -3,47 +3,32 @@ package com.mzamorano.school.objetosnegocio;
 import java.util.Objects;
 
 /**
- * Representa una publicación genérica en un sistema de gestión bibliotecaria.
- * Incluye información básica como ISBN, título, editorial y clasificación.
+ * Una {@code Publicacion} representa un objeto que encapsula los atributos
+ * básicos de una publicación editorial, como libros, revistas, etc.
+ *
+ * <p>Esta clase proporciona un acceso estructurado a los atributos de la publicación,
+ * permitiendo su manejo en sistemas que requieren la gestión de inventarios de publicaciones
+ * o bibliotecas. Los atributos incluyen ISBN, título, editorial y clasificación.
  */
 public class Publicacion {
-    /**
-     * El International Standard Book Number (ISBN) de la publicación.
-     * El ISBN es un identificador único para libros previsto por la norma ISO, utilizado internacionalmente para identificar de manera unívoca las publicaciones.
-     */
     protected String isbn;
-
-    /**
-     * El título de la publicación.
-     * Representa el nombre bajo el cual la publicación es conocida y catalogada.
-     */
     protected String titulo;
-
-    /**
-     * La editorial que publica la obra.
-     * Indica la compañía editorial responsable de la publicación y distribución de la publicación.
-     */
     protected String editorial;
-
-    /**
-     * La clasificación de la publicación.
-     * Se refiere a la categorización o clasificación temática de la publicación, lo cual ayuda a su identificación y ubicación dentro de un sistema de clasificación bibliotecario.
-     */
     protected String clasificacion;
 
-
     /**
-     * Constructor por ausencia. Crea una publicación sin especificar detalles.
+     * Construye una {@code Publicacion} sin inicializar sus atributos.
      */
     public Publicacion() {
     }
 
     /**
-     * Constructor que inicializa una publicación con todos los detalles especificados.
-     * @param isbn el ISBN de la publicación.
+     * Construye una {@code Publicacion} con los detalles editoriales dados.
+     *
+     * @param isbn el ISBN de la publicación, que sirve como identificador único.
      * @param titulo el título de la publicación.
-     * @param editorial la editorial de la publicación.
-     * @param clasificacion la clasificación de la publicación.
+     * @param editorial la editorial que publica la obra.
+     * @param clasificacion la clasificación de la publicación, que puede usarse para categorizarla.
      */
     public Publicacion(String isbn, String titulo, String editorial, String clasificacion) {
         this.isbn = isbn;
@@ -53,7 +38,8 @@ public class Publicacion {
     }
 
     /**
-     * Constructor que inicializa una publicación solo con el ISBN.
+     * Construye una {@code Publicacion} solo con el ISBN.
+     *
      * @param isbn el ISBN de la publicación.
      */
     public Publicacion(String isbn) {
@@ -61,8 +47,9 @@ public class Publicacion {
     }
 
     /**
-     * Obtiene el ISBN de la publicación.
-     * @return el ISBN de la publicación.
+     * Devuelve el ISBN de la publicación.
+     *
+     * @return el ISBN como una cadena de texto.
      */
     public String getIsbn() {
         return isbn;
@@ -70,6 +57,7 @@ public class Publicacion {
 
     /**
      * Establece el ISBN de la publicación.
+     *
      * @param isbn el nuevo ISBN de la publicación.
      */
     public void setIsbn(String isbn) {
@@ -77,8 +65,9 @@ public class Publicacion {
     }
 
     /**
-     * Obtiene el título de la publicación.
-     * @return el título de la publicación.
+     * Devuelve el título de la publicación.
+     *
+     * @return el título como una cadena de texto.
      */
     public String getTitulo() {
         return titulo;
@@ -86,6 +75,7 @@ public class Publicacion {
 
     /**
      * Establece el título de la publicación.
+     *
      * @param titulo el nuevo título de la publicación.
      */
     public void setTitulo(String titulo) {
@@ -93,15 +83,17 @@ public class Publicacion {
     }
 
     /**
-     * Obtiene la editorial de la publicación.
-     * @return la editorial de la publicación.
+     * Devuelve la editorial que publica la obra.
+     *
+     * @return la editorial como una cadena de texto.
      */
     public String getEditorial() {
         return editorial;
     }
 
     /**
-     * Establece la editorial de la publicación.
+     * Establece la editorial que publica la obra.
+     *
      * @param editorial la nueva editorial de la publicación.
      */
     public void setEditorial(String editorial) {
@@ -109,8 +101,9 @@ public class Publicacion {
     }
 
     /**
-     * Obtiene la clasificación de la publicación.
-     * @return la clasificación de la publicación.
+     * Devuelve la clasificación de la publicación.
+     *
+     * @return la clasificación como una cadena de texto.
      */
     public String getClasificacion() {
         return clasificacion;
@@ -118,6 +111,7 @@ public class Publicacion {
 
     /**
      * Establece la clasificación de la publicación.
+     *
      * @param clasificacion la nueva clasificación de la publicación.
      */
     public void setClasificacion(String clasificacion) {
@@ -125,9 +119,11 @@ public class Publicacion {
     }
 
     /**
-     * Determina si dos publicaciones son iguales basándose en su ISBN.
+     * Compara esta {@code Publicacion} al {@code Object} especificado. El resultado es {@code true} si y
+     * solo si el argumento es un objeto {@code Publicacion} del mismo tipo con un ISBN equivalente.
+     *
      * @param o el objeto con el que comparar.
-     * @return {@code true} si ambos objetos son publicaciones con el mismo ISBN, {@code false} en caso contrario.
+     * @return {@code true} si los objetos son iguales, {@code false} en caso contrario.
      */
     @Override
     public boolean equals(Object o) {
@@ -138,8 +134,9 @@ public class Publicacion {
     }
 
     /**
-     * Calcula el código hash de la publicación basándose en su ISBN.
-     * @return el código hash de la publicación.
+     * Devuelve el código hash para esta {@code Publicacion} basándose en su ISBN.
+     *
+     * @return el código hash de esta publicación.
      */
     @Override
     public int hashCode() {
@@ -147,8 +144,9 @@ public class Publicacion {
     }
 
     /**
-     * Devuelve una representación en cadena de la publicación, incluyendo su ISBN, título, editorial y clasificación.
-     * @return una cadena que representa la publicación.
+     * Devuelve una representación en cadena de la publicación.
+     *
+     * @return una cadena que representa la publicación, incluyendo ISBN, título, editorial y clasificación.
      */
     @Override
     public String toString() {

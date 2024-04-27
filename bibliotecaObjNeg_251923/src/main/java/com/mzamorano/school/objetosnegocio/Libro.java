@@ -1,22 +1,27 @@
 package com.mzamorano.school.objetosnegocio;
 
 /**
- * Representa un libro en un sistema de gestión bibliotecaria.
- * Extiende {@link Publicacion} para incluir detalles específicos de libros, como autor y edición.
+ * Un {@code Libro} es una especialización de {@code Publicacion} que añade atributos específicos
+ * relevantes para libros, como el autor y la edición.
+ *
+ * <p>Esta clase proporciona un manejo detallado de los libros en sistemas que gestionan bibliotecas
+ * o inventarios de publicaciones, facilitando el acceso y modificación de información pertinente al
+ * autor y edición del libro.
  */
 public class Libro extends Publicacion {
     private String autor;
     private String edicion;
 
     /**
-     * Constructor por defecto. Crea un libro sin especificar detalles.
+     * Construye un {@code Libro} sin inicializar sus atributos.
      */
     public Libro() {
         super();
     }
 
     /**
-     * Constructor que inicializa un libro con todos los detalles especificados, incluyendo los de la publicación.
+     * Construye un {@code Libro} con los detalles editoriales, autor, y edición dados.
+     *
      * @param isbn el ISBN de la publicación.
      * @param titulo el título de la publicación.
      * @param editorial la editorial de la publicación.
@@ -31,7 +36,8 @@ public class Libro extends Publicacion {
     }
 
     /**
-     * Constructor que inicializa un libro solo con el ISBN, utilizando el constructor de la clase padre.
+     * Construye un {@code Libro} con el ISBN dado.
+     *
      * @param isbn el ISBN de la publicación.
      */
     public Libro(String isbn) {
@@ -39,7 +45,8 @@ public class Libro extends Publicacion {
     }
 
     /**
-     * Obtiene el autor del libro.
+     * Devuelve el autor del libro.
+     *
      * @return el autor del libro.
      */
     public String getAutor() {
@@ -48,6 +55,7 @@ public class Libro extends Publicacion {
 
     /**
      * Establece el autor del libro.
+     *
      * @param autor el nuevo autor del libro.
      */
     public void setAutor(String autor) {
@@ -56,6 +64,7 @@ public class Libro extends Publicacion {
 
     /**
      * Obtiene la edición del libro.
+     *
      * @return la edición del libro.
      */
     public String getEdicion() {
@@ -63,7 +72,8 @@ public class Libro extends Publicacion {
     }
 
     /**
-     * Establece la edición del libro.
+     * Devuelve la edición del libro.
+     *
      * @param edicion la nueva edición del libro.
      */
     public void setEdicion(String edicion) {
@@ -71,9 +81,10 @@ public class Libro extends Publicacion {
     }
 
     /**
-     * Devuelve una representación en cadena del libro, incluyendo su ISBN, título, editorial, clasificación, autor y edición.
-     * Utiliza {@code toString} de la clase padre para incluir los detalles de la publicación.
-     * @return una cadena que representa el libro.
+     * Devuelve una representación en cadena del libro,
+     * incluyendo su ISBN, título, editorial, clasificación, autor y edición.
+     *
+     * @return Una cadena que representa el libro.
      */
     @Override
     public String toString() {
