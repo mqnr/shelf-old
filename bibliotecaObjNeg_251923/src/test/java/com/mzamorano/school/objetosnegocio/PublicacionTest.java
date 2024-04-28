@@ -14,7 +14,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaConstructorVacio() {
+    void testConstructorVacio() {
         Publicacion p = new Publicacion();
         assertNull(p.getIsbn(), "El ISBN debería ser null después de usar el constructor vacío");
         assertNull(p.getTitulo(), "El título debería ser null después de usar el constructor vacío");
@@ -23,7 +23,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaConstructorCompleto() {
+    void testConstructorCompleto() {
         assertNotNull(publicacion.getIsbn(), "El ISBN no debería ser null después de ser inicializado");
         assertEquals("123-456-789", publicacion.getIsbn(), "El ISBN no coincide con el valor proporcionado en el constructor");
         assertEquals("Principios de Java", publicacion.getTitulo(), "El título no coincide con el valor proporcionado en el constructor");
@@ -32,7 +32,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaConstructorISBN() {
+    void testConstructorISBN() {
         Publicacion p = new Publicacion("987-654-321");
         assertEquals("987-654-321", p.getIsbn(), "El ISBN debería coincidir con el valor proporcionado");
         assertNull(p.getTitulo(), "El título debería ser null cuando se utiliza el constructor solo con ISBN");
@@ -41,7 +41,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaSetters() {
+    void testSetters() {
         publicacion.setIsbn("321-654-987");
         assertEquals("321-654-987", publicacion.getIsbn(), "El ISBN no fue actualizado correctamente");
 
@@ -56,7 +56,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaEquals() {
+    void testEquals() {
         Publicacion p1 = new Publicacion("123-456-789");
         Publicacion p2 = new Publicacion("123-456-789");
         Publicacion p3 = new Publicacion("987-654-321");
@@ -68,7 +68,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaHashCode() {
+    void testHashCode() {
         Publicacion p1 = new Publicacion("123-456-789");
         Publicacion p2 = new Publicacion("123-456-789");
         Publicacion p3 = new Publicacion("987-654-321");
@@ -78,7 +78,7 @@ public class PublicacionTest {
     }
 
     @Test
-    void pruebaToString() {
+    void testToString() {
         assertEquals("123-456-789, Principios de Java, Editorial ITSON, Educación", publicacion.toString(), "La representación en cadena no coincide con el formato esperado");
     }
 }
