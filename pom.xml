@@ -12,6 +12,7 @@
     <modules>
       <module>objetosServicio</module>
       <module>objetosNegocio</module>
+      <module>bibliotecaPersistencia</module>
     </modules>
 
     <properties>
