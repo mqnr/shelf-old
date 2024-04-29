@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-      <module>objetosServicio_251923</module>
-      <module>bibliotecaObjNeg_251923</module>
+      <module>objetosServicio</module>
+      <module>objetosNegocio</module>
     </modules>
 
     <properties>
