@@ -2,6 +2,8 @@ package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.objetosnegocio.Revista;
 
+import java.util.List;
+
 public class BibliotecaFachada {
     private final IPersistenciaInventarios persistenciaInventarios;
     private final IPersistenciaPrestamos persistenciaPrestamos;
@@ -15,19 +17,23 @@ public class BibliotecaFachada {
         this.persistenciaUsuarios = persistenciaUsuarios;
     }
 
+    public List<Revista> buscarRevistas() {
+        return persistenciaRevistas.buscar();
+    }
+
+    public List<Revista> buscarRevistas(Validador<Revista> filtros) {
+        return persistenciaRevistas.buscar(filtros);
+    }
+
     public boolean agregarRevista(Revista revista) {
         return persistenciaRevistas.agregar(revista);
     }
 
-    public boolean actualizarRevista(Revista revista) {
-        return persistenciaRevistas.actualizar(revista);
+    public Revista obtenerRevista(String isbn) {
+        return persistenciaRevistas.obtener(isbn);
     }
 
     public boolean eliminarRevista(String isbn) {
         return persistenciaRevistas.eliminar(isbn);
-    }
-
-    public boolean eliminarRevista(Revista revista) {
-        return persistenciaRevistas.eliminar(revista);
     }
 }

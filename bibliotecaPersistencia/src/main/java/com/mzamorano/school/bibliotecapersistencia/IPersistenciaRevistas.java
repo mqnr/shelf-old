@@ -2,8 +2,12 @@ package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.objetosnegocio.Revista;
 
+import java.util.List;
+
 public interface IPersistenciaRevistas {
     boolean agregar(Revista revista);
+    List<Revista> buscar();
+    List<Revista> buscar(Validador<Revista> filtros);
     Revista obtener(String isbn);
     boolean actualizar(Revista revista);
     boolean eliminar(String isbn);
