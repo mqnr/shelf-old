@@ -52,9 +52,4 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     public boolean eliminar(String isbn) {
         return revistas.remove(isbn) != null;
     }
-
-    @Override
-    public boolean eliminar(Revista revista) {
-        return revistas.remove(revista.getIsbn()) != null;
-    }
 }

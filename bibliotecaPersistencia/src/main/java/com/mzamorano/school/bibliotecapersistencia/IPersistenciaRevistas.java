@@ -12,5 +12,4 @@ public interface IPersistenciaRevistas {
     Revista obtener(String isbn);
     boolean actualizar(Revista revista) throws ValidacionException;
     boolean eliminar(String isbn);
-    boolean eliminar(Revista revista);
 }
