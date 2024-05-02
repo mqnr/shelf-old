@@ -14,9 +14,9 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     }
 
     @Override
-    public List<Revista> buscar(Validador<Revista> filtros) {
+    public List<Revista> buscar(Predicado<Revista> filtros) {
         return revistas.values().stream()
-                .filter(filtros::validar)
+                .filter(filtros::satisface)
                 .toList();
     }
 

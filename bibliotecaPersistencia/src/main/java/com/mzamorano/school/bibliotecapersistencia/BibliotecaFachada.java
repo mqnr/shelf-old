@@ -21,7 +21,7 @@ public class BibliotecaFachada {
         return persistenciaRevistas.buscar();
     }
 
-    public List<Revista> buscarRevistas(Validador<Revista> filtros) {
+    public List<Revista> buscarRevistas(Predicado<Revista> filtros) {
         return persistenciaRevistas.buscar(filtros);
     }
 

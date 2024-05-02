@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPersistenciaRevistas {
     boolean agregar(Revista revista);
     List<Revista> buscar();
-    List<Revista> buscar(Validador<Revista> filtros);
+    List<Revista> buscar(Predicado<Revista> filtros);
     Revista obtener(String isbn);
     boolean actualizar(Revista revista);
     boolean eliminar(String isbn);

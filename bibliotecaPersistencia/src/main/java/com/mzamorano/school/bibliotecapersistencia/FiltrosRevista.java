@@ -2,7 +2,7 @@ package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.objetosnegocio.Revista;
 
-public class FiltrosRevista implements Validador<Revista> {
+public class FiltrosRevista implements Predicado<Revista> {
     private String editorialEspecificada;
     private String clasificacionEspecificada;
 
@@ -17,7 +17,7 @@ public class FiltrosRevista implements Validador<Revista> {
     }
 
     @Override
-    public boolean validar(Revista revista) {
+    public boolean satisface(Revista revista) {
         // Si el filtro de editorial fue especificado y la revista no lo cumple, devolver False
         if (editorialEspecificada != null && !revista.getEditorial().equalsIgnoreCase(editorialEspecificada)) {
             return false;
