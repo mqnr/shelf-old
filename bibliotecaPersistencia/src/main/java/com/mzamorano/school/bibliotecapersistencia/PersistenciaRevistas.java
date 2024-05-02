@@ -13,6 +13,7 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     private static final Validador<Revista> validador = new ValidadorRevista();
     private final HashMap<String, Revista> revistas = new HashMap<>();
 
+    @Override
     public List<Revista> buscar() {
         return new ArrayList<>(revistas.values());
     }
