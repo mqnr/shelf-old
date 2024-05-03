@@ -18,23 +18,23 @@ public class BibliotecaFachada {
         this.persistenciaUsuarios = persistenciaUsuarios;
     }
 
-    public List<Revista> buscarRevistas() {
-        return persistenciaRevistas.buscar();
-    }
-
-    public List<Revista> buscarRevistas(Predicado<Revista> filtros) {
-        return persistenciaRevistas.buscar(filtros);
+    public Revista obtenerRevista(String isbn) {
+        return persistenciaRevistas.obtener(isbn);
     }
 
     public boolean agregarRevista(Revista revista) throws ValidacionException {
         return persistenciaRevistas.agregar(revista);
     }
 
-    public Revista obtenerRevista(String isbn) {
-        return persistenciaRevistas.obtener(isbn);
-    }
-
     public boolean eliminarRevista(String isbn) {
         return persistenciaRevistas.eliminar(isbn);
+    }
+
+    public List<Revista> buscarRevistas() {
+        return persistenciaRevistas.buscar();
+    }
+
+    public List<Revista> buscarRevistas(Predicado<Revista> filtros) {
+        return persistenciaRevistas.buscar(filtros);
     }
 }

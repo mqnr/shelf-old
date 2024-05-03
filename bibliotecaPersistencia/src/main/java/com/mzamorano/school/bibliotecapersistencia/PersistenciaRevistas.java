@@ -14,15 +14,8 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     private final HashMap<String, Revista> revistas = new HashMap<>();
 
     @Override
-    public List<Revista> buscar() {
-        return new ArrayList<>(revistas.values());
-    }
-
-    @Override
-    public List<Revista> buscar(Predicado<Revista> filtros) {
-        return revistas.values().stream()
-                .filter(filtros::satisface)
-                .toList();
+    public Revista obtener(String isbn) {
+        return revistas.get(isbn);
     }
 
     @Override
@@ -32,11 +25,6 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
             throw new ValidacionException(resultado.getErrores());
         }
         return revistas.putIfAbsent(revista.getIsbn(), revista) == null;
-    }
-
-    @Override
-    public Revista obtener(String isbn) {
-        return revistas.get(isbn);
     }
 
     @Override
@@ -51,5 +39,17 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     @Override
     public boolean eliminar(String isbn) {
         return revistas.remove(isbn) != null;
+    }
+
+    @Override
+    public List<Revista> buscar() {
+        return new ArrayList<>(revistas.values());
+    }
+
+    @Override
+    public List<Revista> buscar(Predicado<Revista> filtros) {
+        return revistas.values().stream()
+                .filter(filtros::satisface)
+                .toList();
     }
 }
