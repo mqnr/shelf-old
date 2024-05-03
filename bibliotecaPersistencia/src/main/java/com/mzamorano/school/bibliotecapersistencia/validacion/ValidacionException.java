@@ -10,7 +10,7 @@ public class ValidacionException extends Exception {
         this.errores = errores;
     }
 
-    public List<String> getErrors() {
+    public List<String> getErrores() {
         return errores;
     }
 }
