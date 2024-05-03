@@ -31,6 +31,14 @@ public class BibliotecaFachada {
         return persistenciaRevistas.actualizar(revista);
     }
 
+    public Revista agrezarRevista(Revista revista) throws ValidacionException {
+        boolean ok = persistenciaRevistas.agregar(revista);
+        if (ok) {
+            return null;
+        }
+        return persistenciaRevistas.actualizar(revista);
+    }
+
     public boolean eliminarRevista(String isbn) {
         return persistenciaRevistas.eliminar(isbn);
     }
@@ -52,6 +60,14 @@ public class BibliotecaFachada {
     }
 
     public Usuario actualizarUsuario(Usuario usuario) throws ValidacionException {
+        return persistenciaUsuarios.actualizar(usuario);
+    }
+
+    public Usuario agrezarUsuario(Usuario usuario) throws ValidacionException {
+        boolean ok = persistenciaUsuarios.agregar(usuario);
+        if (ok) {
+            return null;
+        }
         return persistenciaUsuarios.actualizar(usuario);
     }
 
