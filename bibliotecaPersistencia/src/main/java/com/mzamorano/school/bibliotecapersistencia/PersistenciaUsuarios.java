@@ -1,6 +1,5 @@
 package com.mzamorano.school.bibliotecapersistencia;
 
-import com.mzamorano.school.bibliotecapersistencia.validacion.ResultadoValidacion;
 import com.mzamorano.school.bibliotecapersistencia.validacion.ValidacionException;
 import com.mzamorano.school.bibliotecapersistencia.validacion.Validador;
 import com.mzamorano.school.objetosnegocio.Usuario;
@@ -21,19 +20,13 @@ public class PersistenciaUsuarios implements IPersistenciaUsuarios {
 
     @Override
     public boolean agregar(Usuario usuario) throws ValidacionException {
-        ResultadoValidacion resultado = validador.validar(usuario);
-        if (resultado.hayErrores()) {
-            throw new ValidacionException(resultado.getErrores());
-        }
+        validador.validar(usuario).arrojarErrores();
         return usuarios.putIfAbsent(usuario.getNumCredencial(), usuario) == null;
     }
 
     @Override
     public Usuario actualizar(Usuario usuario) throws ValidacionException {
-        ResultadoValidacion resultado = validador.validar(usuario);
-        if (resultado.hayErrores()) {
-            throw new ValidacionException(resultado.getErrores());
-        }
+        validador.validar(usuario).arrojarErrores();
         return usuarios.replace(usuario.getNumCredencial(), usuario);
     }
 

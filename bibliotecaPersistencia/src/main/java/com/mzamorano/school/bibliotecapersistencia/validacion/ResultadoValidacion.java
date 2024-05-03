@@ -14,6 +14,12 @@ public class ResultadoValidacion {
         return !errores.isEmpty();
     }
 
+    public void arrojarErrores() throws ValidacionException {
+        if (hayErrores()) {
+            throw new ValidacionException(errores);
+        }
+    }
+
     public List<String> getErrores() {
         return errores;
     }

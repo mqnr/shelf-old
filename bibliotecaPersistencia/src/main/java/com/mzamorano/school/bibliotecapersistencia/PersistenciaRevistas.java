@@ -1,6 +1,5 @@
 package com.mzamorano.school.bibliotecapersistencia;
 
-import com.mzamorano.school.bibliotecapersistencia.validacion.ResultadoValidacion;
 import com.mzamorano.school.bibliotecapersistencia.validacion.ValidacionException;
 import com.mzamorano.school.bibliotecapersistencia.validacion.Validador;
 import com.mzamorano.school.objetosnegocio.Revista;
@@ -20,19 +19,13 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
 
     @Override
     public boolean agregar(Revista revista) throws ValidacionException {
-        ResultadoValidacion resultado = validador.validar(revista);
-        if (resultado.hayErrores()) {
-            throw new ValidacionException(resultado.getErrores());
-        }
+        validador.validar(revista).arrojarErrores();
         return revistas.putIfAbsent(revista.getIsbn(), revista) == null;
     }
 
     @Override
     public Revista actualizar(Revista revista) throws ValidacionException {
-        ResultadoValidacion resultado = validador.validar(revista);
-        if (resultado.hayErrores()) {
-            throw new ValidacionException(resultado.getErrores());
-        }
+        validador.validar(revista).arrojarErrores();
         return revistas.replace(revista.getIsbn(), revista);
     }
 
