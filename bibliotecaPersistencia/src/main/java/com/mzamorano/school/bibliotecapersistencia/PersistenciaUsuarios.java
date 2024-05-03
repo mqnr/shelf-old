@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PersistenciaUsuarios implements IPersistenciaUsuarios {
-    private final Validador<Usuario> validador = new ValidadorUsuario();
+    private static final Validador<Usuario> validador = new ValidadorUsuario();
     private final Map<String, Usuario> usuarios = new HashMap<>();
 
     @Override
