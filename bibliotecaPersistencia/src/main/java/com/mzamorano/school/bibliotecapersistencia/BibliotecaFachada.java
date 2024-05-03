@@ -22,7 +22,7 @@ public class BibliotecaFachada {
         return persistenciaRevistas.obtener(isbn);
     }
 
-    public boolean actualizarRevista(Revista revista) throws ValidacionException {
+    public Revista actualizarRevista(Revista revista) throws ValidacionException {
         return persistenciaRevistas.actualizar(revista);
     }
 

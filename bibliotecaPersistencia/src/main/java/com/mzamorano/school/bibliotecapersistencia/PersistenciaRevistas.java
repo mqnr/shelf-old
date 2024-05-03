@@ -28,12 +28,12 @@ public class PersistenciaRevistas implements IPersistenciaRevistas {
     }
 
     @Override
-    public boolean actualizar(Revista revista) throws ValidacionException {
+    public Revista actualizar(Revista revista) throws ValidacionException {
         ResultadoValidacion resultado = validador.validar(revista);
         if (resultado.hayErrores()) {
             throw new ValidacionException(resultado.getErrores());
         }
-        return revistas.replace(revista.getIsbn(), revista) != null;
+        return revistas.replace(revista.getIsbn(), revista);
     }
 
     @Override
