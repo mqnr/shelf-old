@@ -2,44 +2,56 @@ package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.bibliotecapersistencia.validacion.ResultadoValidacion;
 import com.mzamorano.school.bibliotecapersistencia.validacion.Validador;
+import com.mzamorano.school.objetosnegocio.Publicacion;
 import com.mzamorano.school.objetosnegocio.Revista;
 import com.mzamorano.school.objetosservicio.Fecha;
 
 import java.time.Year;
 import java.util.List;
 
-public class ValidadorRevista implements Validador<Revista> {
+public class ValidadorPublicacion implements Validador<Publicacion> {
     private static final List<String> PERIODICIDADES_VALIDAS = List.of("diaria", "semanal", "quincenal", "mensual");
     private static final List<String> CLASIFICACIONES_VALIDAS = List.of("ciencia", "tecnología", "computación", "arquitectura");
 
     @Override
-    public ResultadoValidacion validar(Revista revista) {
+    public ResultadoValidacion validar(Publicacion publicacion) {
         var resultado = new ResultadoValidacion();
-        if (revista == null) {
+        if (publicacion == null) {
             resultado.agregarError("Valores null no permitidos");
             return resultado;
         }
-        validarTitulo(revista, resultado);
-        validarIsbn(revista, resultado);
-        validarFecha(revista, resultado);
-        validarPeriodicidad(revista, resultado);
-        validarClasificacion(revista, resultado);
+
+        validarIsbn(publicacion, resultado);
+        validarTitulo(publicacion, resultado);
+        validarClasificacion(publicacion, resultado);
+
+        if (publicacion instanceof Revista) {
+            validarFecha((Revista)publicacion, resultado);
+            validarPeriodicidad((Revista)publicacion, resultado);
+        }
+
         return resultado;
     }
 
-    private void validarTitulo(Revista revista, ResultadoValidacion resultado) {
-        if (revista.getTitulo() == null || revista.getTitulo().isEmpty()) {
+    private void validarIsbn(Publicacion publicacion, ResultadoValidacion resultado) {
+        if (publicacion.getIsbn() == null || publicacion.getIsbn().isEmpty()) {
+            resultado.agregarError("El ISBN no debe estar vacío");
+            return;
+        }
+        if (publicacion.getIsbn().length() < 10) {
+            resultado.agregarError("El ISBN debe contener al menos 10 caracteres");
+        }
+    }
+
+    private void validarTitulo(Publicacion publicacion, ResultadoValidacion resultado) {
+        if (publicacion.getTitulo() == null || publicacion.getTitulo().isEmpty()) {
             resultado.agregarError("El título de la revista no debe estar vacío");
         }
     }
 
-    private void validarIsbn(Revista revista, ResultadoValidacion resultado) {
-        if (revista.getIsbn() == null || revista.getIsbn().isEmpty()) {
-            resultado.agregarError("El ISBN no debe estar vacío");
-            return;
-        }
-        if (revista.getIsbn().length() < 10) {
-            resultado.agregarError("El ISBN debe contener al menos 10 caracteres");
+    private void validarClasificacion(Publicacion publicacion, ResultadoValidacion resultado) {
+        if (!CLASIFICACIONES_VALIDAS.contains(publicacion.getClasificacion().toLowerCase())) {
+            resultado.agregarError("La clasificación " + publicacion.getClasificacion() + " no es de las clasificaciones válidas");
         }
     }
 
@@ -53,12 +65,6 @@ public class ValidadorRevista implements Validador<Revista> {
     private void validarPeriodicidad(Revista revista, ResultadoValidacion resultado) {
         if (!PERIODICIDADES_VALIDAS.contains(revista.getPeriodicidad().toLowerCase())) {
             resultado.agregarError("La periodicidad " + revista.getPeriodicidad() + " no es una de las periodicidades válidas");
-        }
-    }
-
-    private void validarClasificacion(Revista revista, ResultadoValidacion resultado) {
-        if (!CLASIFICACIONES_VALIDAS.contains(revista.getClasificacion().toLowerCase())) {
-            resultado.agregarError("La clasificación " + revista.getClasificacion() + " no es de las clasificaciones válidas");
         }
     }
 }

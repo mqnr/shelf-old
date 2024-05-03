@@ -2,6 +2,7 @@ package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.bibliotecapersistencia.validacion.ValidacionException;
 import com.mzamorano.school.bibliotecapersistencia.validacion.Validador;
+import com.mzamorano.school.objetosnegocio.Publicacion;
 import com.mzamorano.school.objetosnegocio.Revista;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PersistenciaRevistas implements IPersistenciaRevistas {
-    private static final Validador<Revista> validador = new ValidadorRevista();
+    private static final Validador<Publicacion> validador = new ValidadorPublicacion();
     private final HashMap<String, Revista> revistas = new HashMap<>();
 
     @Override
