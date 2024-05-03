@@ -20,6 +20,7 @@ public class ValidadorRevista implements Validador<Revista> {
             return resultado;
         }
         validarTitulo(revista, resultado);
+        validarIsbn(revista, resultado);
         validarFecha(revista, resultado);
         validarPeriodicidad(revista, resultado);
         validarClasificacion(revista, resultado);
@@ -29,6 +30,16 @@ public class ValidadorRevista implements Validador<Revista> {
     private void validarTitulo(Revista revista, ResultadoValidacion resultado) {
         if (revista.getTitulo() == null || revista.getTitulo().isEmpty()) {
             resultado.agregarError("El título de la revista no debe estar vacío");
+        }
+    }
+
+    private void validarIsbn(Revista revista, ResultadoValidacion resultado) {
+        if (revista.getIsbn() == null || revista.getIsbn().isEmpty()) {
+            resultado.agregarError("El ISBN no debe estar vacío");
+            return;
+        }
+        if (revista.getIsbn().length() < 10) {
+            resultado.agregarError("El ISBN debe contener al menos 10 caracteres");
         }
     }
 
