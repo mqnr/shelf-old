@@ -1,5 +1,6 @@
 package com.mzamorano.school.bibliotecapersistencia;
 
+import com.mzamorano.school.bibliotecapersistencia.validacion.ValidacionException;
 import com.mzamorano.school.objetosnegocio.Revista;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class BibliotecaFachada {
         return persistenciaRevistas.buscar(filtros);
     }
 
-    public boolean agregarRevista(Revista revista) {
+    public boolean agregarRevista(Revista revista) throws ValidacionException {
         return persistenciaRevistas.agregar(revista);
     }
 
