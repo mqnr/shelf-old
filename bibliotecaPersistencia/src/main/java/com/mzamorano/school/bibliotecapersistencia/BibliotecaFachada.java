@@ -1,6 +1,7 @@
 package com.mzamorano.school.bibliotecapersistencia;
 
 import com.mzamorano.school.bibliotecapersistencia.validacion.ValidacionException;
+import com.mzamorano.school.objetosnegocio.PublicacionED;
 import com.mzamorano.school.objetosnegocio.Revista;
 import com.mzamorano.school.objetosnegocio.Usuario;
 
@@ -81,5 +82,70 @@ public class BibliotecaFachada {
 
     public List<Usuario> buscarUsuarios(Predicado<Usuario> filtros) {
         return persistenciaUsuarios.buscar(filtros);
+    }
+
+    public PublicacionED obtenerInventario(String isbn) {
+        return persistenciaInventarios.obtener(isbn);
+    }
+
+    public PublicacionED inventariar(Revista revista) throws ValidacionException {
+        return inventariar(revista, 1);
+    }
+
+    public PublicacionED inventariar(Revista revista, int cantidad) throws ValidacionException {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("Cantidad debe ser mayor que 0");
+        }
+
+        var existente = persistenciaInventarios.obtener(revista.getIsbn());
+        // Si la revista ya existe, nuestra vida es fácil: podemos usar la
+        // cantidad dada como existencia y disponibilidad.
+        if (existente == null) {
+            var inventario = new PublicacionED(revista, cantidad, cantidad);
+            // Agregar primero a la persistencia de inventarios para ver si hay
+            // algún error de validación.
+            persistenciaInventarios.agregar(inventario);
+            // Si no hay ningún error de validación, podemos añadir la revista
+            // al repositorio de revistas si no está ahí ya.
+            agrezarRevista(revista);
+            return inventario;
+        }
+
+        // Creamos un nuevo inventario con las nuevas copias que hay.
+        var inventario = new PublicacionED(
+                revista,
+                existente.getExistencia() + cantidad,
+                existente.getDisponibilidad() + cantidad
+        );
+
+        // Igual que antes: primero revisamos si hay algún error de validación,
+        // y si no, podemos agregarla al repositorio de revistas si no está.
+        persistenciaInventarios.actualizar(inventario);
+        agrezarRevista(revista);
+
+        return inventario;
+    }
+
+    public void desinventariar(Revista revista) throws ValidacionException {
+        desinventariar(revista, 1);
+    }
+
+    public void desinventariar(Revista revista, int cantidad) throws ValidacionException {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("Cantidad debe ser mayor que 0");
+        }
+        var existente = persistenciaInventarios.obtener(revista.getIsbn());
+        if (existente == null) {
+            // TODO: algo mejor - esto es temporal
+            throw new IllegalArgumentException("No se puede desinventariar una revista sin inventario");
+        }
+
+        var inventario = new PublicacionED(
+                revista,
+                existente.getExistencia() - cantidad,
+                existente.getDisponibilidad() - cantidad
+        );
+        persistenciaInventarios.actualizar(inventario);
+        agrezarRevista(revista);
     }
 }
